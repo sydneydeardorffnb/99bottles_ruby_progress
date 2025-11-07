@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -e
+# Compare to main; update ref as needed (origin/main). If you don't have origin/main, use main
+BASE=${1:-origin/main}
+git fetch origin main:refs/remotes/origin/main >/dev/null 2>&1 || true
+git diff --name-only "$BASE" -- '*.erb' | xargs -r bundle exec erblint
+
+

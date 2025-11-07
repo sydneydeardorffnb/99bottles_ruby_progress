@@ -1,0 +1,16 @@
+EnableDefaultLinters: false
+
+Linters:
+  FinalNewline:
+    Enabled: true
+
+  TrailingWhitespace:
+    Enabled: true
+
+  ImageAlt:
+    Enabled: true
+
+  NoPositiveTabindex:
+    Enabled: true
+
+
