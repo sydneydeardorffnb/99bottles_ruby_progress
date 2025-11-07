@@ -1,5 +1,8 @@
 EnableDefaultLinters: false
 
+Require:
+  - erblint-github
+
 Linters:
   FinalNewline:
     Enabled: true
