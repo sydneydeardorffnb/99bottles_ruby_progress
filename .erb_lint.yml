@@ -3,7 +3,7 @@ EnableDefaultLinters: false
 Require:
   - erblint-github
 
-Linters:
+linters:
   FinalNewline:
     Enabled: true
 
