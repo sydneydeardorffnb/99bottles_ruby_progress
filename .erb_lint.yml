@@ -1,0 +1,24 @@
+EnableDefaultLinters: false
+
+Require:
+  - erblint-github
+
+linters:
+  Accessibility:
+    enabled: true
+    check_aria_hidden_body: true
+    check_image_has_alt: true
+
+  FinalNewline:
+    enabled: true
+
+  TrailingWhitespace:
+    enabled: true
+
+  ImageAlt:
+    enabled: true
+
+  NoPositiveTabindex:
+    enabled: true
+
+

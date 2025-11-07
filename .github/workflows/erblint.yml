@@ -1,0 +1,38 @@
+name: ERB Lint (Advisory)
+
+on:
+  pull_request:
+    paths:
+      - '**/*.erb'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  erblint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+          bundler-cache: true
+
+      - name: Install gems
+        run: bundle install --jobs 4 --retry 3
+
+      - name: Run erb-lint in diff-only (annotate PR)
+        uses: tk0miya/action-erblint@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          filter_mode: added
+          reporter: github-pr-review
+          level: warning
+          fail_on_error: false
+          use_bundle: true
+
+

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+BASE=${1:-origin/main}
+git fetch origin main:refs/remotes/origin/main >/dev/null 2>&1 || true
+# produce unified diff with zero context so we can target changed lines
+git diff -U0 "$BASE" -- '*.erb' > /tmp/erb.diff
+if [ ! -s /tmp/erb.diff ]; then
+  echo "No ERB changes relative to $BASE"
+  exit 0
+fi
+# xargs to list changed files and run full file lint on them:
+grep '^+++ b/' /tmp/erb.diff | sed 's/+++ b\///' | xargs -r bundle exec erb_lint
+
+
