@@ -9,6 +9,6 @@ if [ ! -s /tmp/erb.diff ]; then
   exit 0
 fi
 # xargs to list changed files and run full file lint on them:
-grep '^+++ b/' /tmp/erb.diff | sed 's/+++ b\///' | xargs -r bundle exec erblint
+grep '^+++ b/' /tmp/erb.diff | sed 's/+++ b\///' | xargs -r bundle exec erb_lint
 
 
