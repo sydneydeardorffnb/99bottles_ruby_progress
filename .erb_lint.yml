@@ -5,15 +5,15 @@ Require:
 
 linters:
   FinalNewline:
-    Enabled: true
+    enabled: true
 
   TrailingWhitespace:
-    Enabled: true
+    enabled: true
 
   ImageAlt:
-    Enabled: true
+    enabled: true
 
   NoPositiveTabindex:
-    Enabled: true
+    enabled: true
 
 
